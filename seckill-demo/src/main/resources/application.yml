@@ -1,0 +1,26 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://aliyun-server:3307/seckill?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: cckp@123
+    hikari:
+      pool-name: DateHikarCP
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 15
+      # 从连接池返回的连接自动提交
+      auto-commit: true
+      max-lifetime: 1800000
+     # connection-timeout:
+      connection-test-query: SELECT 1
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*Mapper.xml
+  type-aliases-package: com.cckp.seckill.entity
+
+logging:
+  level:
+    com.cckp.seckill.mapper: debug
